@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,21 +17,35 @@ void main() {
 }
 
 class DicePage extends StatelessWidget {
+  int leftDiceNumber = 5;
+  int rightDiceNumber = 6;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(children: [
-        Expanded(
+      child: Row(
+        children: [
+          Expanded(
             child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Image.asset("images/dice1.png"),
-        )),
-        Expanded(
+              padding: const EdgeInsets.all(16.0),
+              child: TextButton(
+                  onPressed: () {
+                    print("vous avez appuyé sur l'image de gauche");
+                  },
+                  child: Image.asset("images/dice$leftDiceNumber.png")),
+            ),
+          ),
+          Expanded(
             child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Image.asset("images/dice2.png"),
-        )),
-      ]),
+              padding: const EdgeInsets.all(16.0),
+              child: TextButton(
+                  onPressed: () {
+                    print("Vous avez appuyé sur l'image de droite");
+                  },
+                  child: Image.asset("images/dice$rightDiceNumber.png")),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
